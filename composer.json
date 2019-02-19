@@ -103,7 +103,8 @@
         "drupal/date_recur_interactive": "^2.0",
         "drupal/bootstrap": "^3.17",
         "drupal/styleguide": "^1.0@alpha",
-        "drupal/config_split": "^1.4"
+        "drupal/config_split": "^1.4",
+        "drupal/google_analytics": "^3.0"
     },
     "require-dev": {
         "drupal/features": "^3.7",

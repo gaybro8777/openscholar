@@ -12,6 +12,7 @@ permissions:
   - 'access content'
   - 'access toolbar'
   - 'create page content'
+  - 'opt-in or out of google analytics tracking'
   - 'use text format filtered_html'
   - 'view control_panel in toolbar'
   - 'view media'

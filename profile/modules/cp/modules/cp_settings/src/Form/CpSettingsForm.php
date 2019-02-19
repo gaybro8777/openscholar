@@ -122,6 +122,20 @@ class CpSettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    parent::validateForm($form, $form_state);
+    /** @var \Drupal\cp_settings\CpSettingInterface[] $plugins */
+    $plugins = $this->getPlugins();
+    foreach ($plugins as $p) {
+      if(method_exists($p, 'validateForm')) {
+        $p->validateForm($form, $form_state);
+      }
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     /** @var \Drupal\cp_settings\CpSettingInterface[] $plugins */
     $plugins = $this->getPlugins();
