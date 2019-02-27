@@ -35,7 +35,6 @@ class GaSettingForm extends PluginBase implements CpSettingInterface {
   public function getEditableConfigNames() : array {
     return [
       'os_ga.settings',
-      'google_analytics.settings',
     ];
   }
 
@@ -43,14 +42,14 @@ class GaSettingForm extends PluginBase implements CpSettingInterface {
    * {@inheritdoc}
    */
   public function getForm(array &$form, ConfigFactoryInterface $configFactory) {
-    $config_ga = $configFactory->get('google_analytics.settings');
+    $config_ga = $configFactory->get('os_ga.settings');
     $form['title'] = [
       '#type' => 'page_title',
       '#title' => $this->t('Google Analytics'),
     ];
 
     $form['web_property_id'] = [
-      '#default_value' => $config_ga->get('account'),
+      '#default_value' => $config_ga->get('web_property_id'),
       '#description' => $this->t('This ID is unique to each site you want 
 to track separately, and is in the form of UA-xxxxxxx-yy. To get a Web Property 
 ID, <a href=":analytics">register your site with Google Analytics</a>, or if you
@@ -90,9 +89,9 @@ ID, <a href=":analytics">register your site with Google Analytics</a>, or if you
    * {@inheritdoc}
    */
   public function submitForm(FormStateInterface $formState, ConfigFactoryInterface $configFactory) {
-    $config_ga = $configFactory->getEditable('google_analytics.settings');
+    $config_ga = $configFactory->getEditable('os_ga.settings');
     $config_ga
-      ->set('account', $formState->getValue('web_property_id'))
+      ->set('web_property_id', $formState->getValue('web_property_id'))
       ->save();
   }
 
