@@ -44,8 +44,6 @@ class GaSettingForm extends PluginBase implements CpSettingInterface {
    */
   public function getForm(array &$form, ConfigFactoryInterface $configFactory) {
     $config_ga = $configFactory->get('google_analytics.settings');
-    // $os_confgi_ga = $configFactory->get('os_ga.settings');
-    // TODO For os/vsite specific settings.
     $form['title'] = [
       '#type' => 'page_title',
       '#title' => $this->t('Google Analytics'),
@@ -93,8 +91,6 @@ ID, <a href=":analytics">register your site with Google Analytics</a>, or if you
    */
   public function submitForm(FormStateInterface $formState, ConfigFactoryInterface $configFactory) {
     $config_ga = $configFactory->getEditable('google_analytics.settings');
-    // TODO.
-    // $os_confgi_ga = $configFactory->getEditable('os_ga.settings');.
     $config_ga
       ->set('account', $formState->getValue('web_property_id'))
       ->save();

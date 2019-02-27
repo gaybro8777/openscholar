@@ -104,11 +104,8 @@
         "drupal/bootstrap": "^3.17",
         "drupal/styleguide": "^1.0@alpha",
         "drupal/config_split": "^1.4",
-<<<<<<< HEAD
-        "drupal/google_analytics": "^3.0"
-=======
+        "drupal/google_analytics": "^3.0",
         "drupal/mailchimp": "^1.8"
->>>>>>> 1b3469abdc93585ed75a8fd3093f038a183b348b
     },
     "require-dev": {
         "drupal/features": "^3.7",
