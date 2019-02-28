@@ -49,7 +49,7 @@ class GaAdminFormTest extends ExistingSiteBase {
     $this->drupalGet('cp/settings/analytics');
     // Testing multiple form fields.
     $edit = [
-      'edit-web-property-id' => 'UA-1234567-A1'
+      'edit-web-property-id' => 'UA-1234567-A1',
     ];
     $this->submitForm($edit, 'edit-submit');
     $this->assertSession()->fieldValueEquals('edit-web-property-id', 'UA-1234567-A1');
